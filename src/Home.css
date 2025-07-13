@@ -6,9 +6,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #f5576c 75%, #4facfe 100%);
-  background-size: 400% 400%;
-  animation: gradientShift 10s ease infinite;
+  background: linear-gradient(135deg, #ff006e 0%, #fb5607 12.5%, #ffbe0b 25%, #8338ec 37.5%, #3a86ff 50%, #06ffa5 62.5%, #ff4081 75%, #e91e63 87.5%, #9c27b0 100%);
+  background-size: 600% 600%;
+  animation: gradientShift 6s ease infinite;
   min-height: 100vh;
   overflow-x: hidden;
   color: #1e293b;
@@ -128,9 +128,17 @@ body::after {
 }
 
 .loading-spinner .spinner-border {
-  width: 3rem;
-  height: 3rem;
-  border-width: 0.3em;
+  width: 4rem;
+  height: 4rem;
+  border-width: 0.5rem;
+  border: 0.5rem solid transparent;
+  border-top: 0.5rem solid #ff006e;
+  border-right: 0.5rem solid #fb5607;
+  border-bottom: 0.5rem solid #ffbe0b;
+  border-left: 0.5rem solid #8338ec;
+  border-radius: 50%;
+  animation: rainbow-spin 1s linear infinite;
+  box-shadow: 0 0 30px rgba(255, 0, 110, 0.8);
 }
 
 /* Welcome Stats */
@@ -389,13 +397,13 @@ body::after {
   font-family: 'Orbitron', monospace;
   font-weight: 900;
   font-size: 2rem;
-  background: linear-gradient(135deg, #ff6b6b 0%, #feca57 25%, #48dbfb 50%, #ff9ff3 75%, #54a0ff 100%);
-  background-size: 400% 400%;
+  background: linear-gradient(135deg, #ff006e 0%, #fb5607 12.5%, #ffbe0b 25%, #8338ec 37.5%, #3a86ff 50%, #06ffa5 62.5%, #ff4081 75%, #e91e63 87.5%, #9c27b0 100%);
+  background-size: 600% 600%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  animation: brandGlow 3s ease infinite;
-  text-shadow: 0 0 25px rgba(255, 107, 107, 0.6);
+  animation: brandGlow 2s ease infinite;
+  text-shadow: 0 0 35px rgba(255, 0, 110, 0.8);
   position: relative;
   z-index: 2;
 }
@@ -477,13 +485,13 @@ body::after {
   font-weight: 900;
   text-align: center;
   margin-bottom: 30px;
-  background: linear-gradient(135deg, #ff6b6b 0%, #feca57 25%, #48dbfb 50%, #ff9ff3 75%, #54a0ff 100%);
-  background-size: 400% 400%;
+  background: linear-gradient(135deg, #ff006e 0%, #fb5607 12.5%, #ffbe0b 25%, #8338ec 37.5%, #3a86ff 50%, #06ffa5 62.5%, #ff4081 75%, #e91e63 87.5%, #9c27b0 100%);
+  background-size: 600% 600%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  animation: titleGlow 4s ease infinite;
-  text-shadow: 0 0 40px rgba(255, 107, 107, 0.6);
+  animation: titleGlow 3s ease infinite;
+  text-shadow: 0 0 50px rgba(255, 0, 110, 0.8);
   position: relative;
   font-size: 3.5rem;
 }
@@ -508,12 +516,12 @@ body::after {
   color: #1e293b;
   font-weight: 700;
   margin-bottom: 15px;
-  background: linear-gradient(135deg, #ff6b6b 0%, #feca57 50%, #48dbfb 100%);
-  background-size: 300% 300%;
+  background: linear-gradient(135deg, #ff006e 0%, #fb5607 25%, #ffbe0b 50%, #8338ec 75%, #3a86ff 100%);
+  background-size: 400% 400%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  animation: titleShimmer 3s ease infinite;
+  animation: titleShimmer 2s ease infinite;
   font-family: 'Orbitron', monospace;
   font-size: 1.3rem;
 }
@@ -631,27 +639,27 @@ body::after {
 
 /* Unique holographic text colors */
 .text-primary {
-  color: #ff6b6b !important;
+  color: #ff006e !important;
   font-weight: 800;
-  text-shadow: 0 0 15px rgba(255, 107, 107, 0.5);
+  text-shadow: 0 0 20px rgba(255, 0, 110, 0.8);
 }
 
 .text-success {
-  color: #26de81 !important;
+  color: #06ffa5 !important;
   font-weight: 800;
-  text-shadow: 0 0 15px rgba(38, 222, 129, 0.5);
+  text-shadow: 0 0 20px rgba(6, 255, 165, 0.8);
 }
 
 .text-warning {
-  color: #feca57 !important;
+  color: #ffbe0b !important;
   font-weight: 800;
-  text-shadow: 0 0 15px rgba(254, 202, 87, 0.5);
+  text-shadow: 0 0 20px rgba(255, 190, 11, 0.8);
 }
 
 .text-info {
-  color: #54a0ff !important;
+  color: #3a86ff !important;
   font-weight: 800;
-  text-shadow: 0 0 15px rgba(84, 160, 255, 0.5);
+  text-shadow: 0 0 20px rgba(58, 134, 255, 0.8);
 }
 
 .text-muted {

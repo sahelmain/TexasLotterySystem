@@ -3,9 +3,9 @@
 /* Unique futuristic login page */
 .login-page {
   min-height: 100vh;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #f5576c 75%, #4facfe 100%);
-  background-size: 400% 400%;
-  animation: gradientShift 10s ease infinite;
+  background: linear-gradient(135deg, #ff006e 0%, #fb5607 12.5%, #ffbe0b 25%, #8338ec 37.5%, #3a86ff 50%, #06ffa5 62.5%, #ff4081 75%, #e91e63 87.5%, #9c27b0 100%);
+  background-size: 600% 600%;
+  animation: gradientShift 6s ease infinite;
   display: flex;
   align-items: center;
   padding: 0;
@@ -197,15 +197,15 @@
 }
 
 .login-form .input-group-text {
-  background: linear-gradient(135deg, #ff6b6b 0%, #feca57 50%, #ff6b6b 100%);
-  background-size: 200% 200%;
-  animation: inputIconGlow 3s ease infinite;
+  background: linear-gradient(135deg, #ff006e 0%, #fb5607 25%, #ffbe0b 50%, #8338ec 75%, #ff006e 100%);
+  background-size: 400% 400%;
+  animation: inputIconGlow 2s ease infinite;
   border: none;
   border-radius: 15px 0 0 15px;
   color: white;
   font-weight: 700;
   padding: 15px 20px;
-  box-shadow: 0 4px 15px rgba(255, 107, 107, 0.5);
+  box-shadow: 0 4px 15px rgba(255, 0, 110, 0.8);
   font-size: 1.2rem;
 }
 
@@ -249,9 +249,9 @@
 
 /* Unique 3D morphing primary button */
 .btn-primary {
-  background: linear-gradient(135deg, #ff6b6b 0%, #feca57 25%, #48dbfb 50%, #ff9ff3 75%, #54a0ff 100%);
-  background-size: 400% 400%;
-  animation: buttonMorph 4s ease infinite;
+  background: linear-gradient(135deg, #ff006e 0%, #fb5607 12.5%, #ffbe0b 25%, #8338ec 37.5%, #3a86ff 50%, #06ffa5 62.5%, #ff4081 75%, #e91e63 87.5%, #9c27b0 100%);
+  background-size: 600% 600%;
+  animation: buttonMorph 3s ease infinite;
   border: none;
   border-radius: 20px;
   color: white;
@@ -265,7 +265,7 @@
   overflow: hidden;
   box-shadow: 
     0 6px 20px rgba(0, 0, 0, 0.3),
-    0 0 30px rgba(255, 107, 107, 0.5);
+    0 0 40px rgba(255, 0, 110, 0.8);
   text-transform: uppercase;
   letter-spacing: 2px;
   font-size: 1.1rem;

@@ -14,9 +14,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #f5576c 75%, #4facfe 100%);
-  background-size: 400% 400%;
-  animation: gradientShift 10s ease infinite;
+  background: linear-gradient(135deg, #ff006e 0%, #fb5607 12.5%, #ffbe0b 25%, #8338ec 37.5%, #3a86ff 50%, #06ffa5 62.5%, #ff4081 75%, #e91e63 87.5%, #9c27b0 100%);
+  background-size: 600% 600%;
+  animation: gradientShift 8s ease infinite;
   min-height: 100vh;
   overflow-x: hidden;
   color: #1e293b;
@@ -54,14 +54,18 @@ body::after {
   width: 100%;
   height: 100%;
   background-image: 
-    radial-gradient(2px 2px at 20px 30px, rgba(255, 255, 255, 0.4), transparent),
-    radial-gradient(2px 2px at 40px 70px, rgba(255, 107, 107, 0.4), transparent),
-    radial-gradient(1px 1px at 90px 40px, rgba(254, 202, 87, 0.4), transparent),
-    radial-gradient(1px 1px at 130px 80px, rgba(72, 219, 251, 0.4), transparent),
-    radial-gradient(2px 2px at 160px 30px, rgba(255, 159, 243, 0.4), transparent);
+    radial-gradient(3px 3px at 20px 30px, rgba(255, 0, 110, 0.6), transparent),
+    radial-gradient(2px 2px at 40px 70px, rgba(251, 86, 7, 0.6), transparent),
+    radial-gradient(4px 4px at 90px 40px, rgba(255, 190, 11, 0.6), transparent),
+    radial-gradient(2px 2px at 130px 80px, rgba(131, 56, 236, 0.6), transparent),
+    radial-gradient(3px 3px at 160px 30px, rgba(58, 134, 255, 0.6), transparent),
+    radial-gradient(2px 2px at 200px 60px, rgba(6, 255, 165, 0.6), transparent),
+    radial-gradient(4px 4px at 240px 20px, rgba(255, 64, 129, 0.6), transparent),
+    radial-gradient(1px 1px at 280px 80px, rgba(233, 30, 99, 0.6), transparent),
+    radial-gradient(3px 3px at 320px 40px, rgba(156, 39, 176, 0.6), transparent);
   background-repeat: repeat;
-  background-size: 200px 100px;
-  animation: floatingParticles 20s linear infinite;
+  background-size: 350px 120px;
+  animation: floatingParticles 15s linear infinite;
   pointer-events: none;
   z-index: -1;
 }
@@ -148,9 +152,55 @@ body::after {
 }
 
 .loading-spinner .spinner-border {
-  width: 3rem;
-  height: 3rem;
-  border-width: 0.3em;
+  width: 4rem;
+  height: 4rem;
+  border-width: 0.5rem;
+  border: 0.5rem solid transparent;
+  border-top: 0.5rem solid #ff006e;
+  border-right: 0.5rem solid #fb5607;
+  border-bottom: 0.5rem solid #ffbe0b;
+  border-left: 0.5rem solid #8338ec;
+  border-radius: 50%;
+  animation: rainbow-spin 1s linear infinite;
+  box-shadow: 0 0 30px rgba(255, 0, 110, 0.8);
+}
+
+@keyframes rainbow-spin {
+  0% { 
+    transform: rotate(0deg);
+    border-top-color: #ff006e;
+    border-right-color: #fb5607;
+    border-bottom-color: #ffbe0b;
+    border-left-color: #8338ec;
+  }
+  25% { 
+    transform: rotate(90deg);
+    border-top-color: #3a86ff;
+    border-right-color: #06ffa5;
+    border-bottom-color: #ff4081;
+    border-left-color: #e91e63;
+  }
+  50% { 
+    transform: rotate(180deg);
+    border-top-color: #9c27b0;
+    border-right-color: #ff006e;
+    border-bottom-color: #fb5607;
+    border-left-color: #ffbe0b;
+  }
+  75% { 
+    transform: rotate(270deg);
+    border-top-color: #8338ec;
+    border-right-color: #3a86ff;
+    border-bottom-color: #06ffa5;
+    border-left-color: #ff4081;
+  }
+  100% { 
+    transform: rotate(360deg);
+    border-top-color: #e91e63;
+    border-right-color: #9c27b0;
+    border-bottom-color: #ff006e;
+    border-left-color: #fb5607;
+  }
 }
 
 /* History Stats */
@@ -265,10 +315,11 @@ body::after {
   bottom: 0;
   border-radius: 20px;
   padding: 3px;
-  background: linear-gradient(135deg, #ff6b6b, #feca57, #48dbfb, #ff9ff3);
+  background: linear-gradient(135deg, #ff006e, #fb5607, #ffbe0b, #8338ec, #3a86ff, #06ffa5, #ff4081, #e91e63, #9c27b0);
+  background-size: 600% 600%;
   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   mask-composite: exclude;
-  animation: holographicBorder 3s linear infinite;
+  animation: holographicBorder 2s linear infinite;
 }
 
 @keyframes holographicBorder {
@@ -350,9 +401,9 @@ body::after {
 .number-ball-small {
   width: 35px;
   height: 35px;
-  background: linear-gradient(135deg, #ff6b6b 0%, #feca57 25%, #48dbfb 50%, #ff9ff3 75%, #54a0ff 100%);
-  background-size: 400% 400%;
-  animation: ballOrbitSmall 3s ease infinite;
+  background: linear-gradient(135deg, #ff006e 0%, #fb5607 12.5%, #ffbe0b 25%, #8338ec 37.5%, #3a86ff 50%, #06ffa5 62.5%, #ff4081 75%, #e91e63 87.5%, #9c27b0 100%);
+  background-size: 600% 600%;
+  animation: ballOrbitSmall 2s ease infinite;
   border-radius: 50%;
   display: inline-flex;
   align-items: center;
@@ -364,7 +415,8 @@ body::after {
   margin: 3px;
   box-shadow: 
     0 2px 8px rgba(0, 0, 0, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    0 0 15px rgba(255, 0, 110, 0.6);
   transition: all 0.3s ease;
 }
 
@@ -749,39 +801,43 @@ body::after {
 
 /* Enhanced card headers with better gradients */
 .powerball-card .card-header {
-  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 50%, #ff6b6b 100%);
-  background-size: 200% 200%;
-  animation: neonPulse 3s ease-in-out infinite;
+  background: linear-gradient(135deg, #ff006e 0%, #fb5607 25%, #ff4081 50%, #e91e63 75%, #ff006e 100%);
+  background-size: 400% 400%;
+  animation: neonPulse 2s ease-in-out infinite;
   border-radius: 20px 20px 0 0;
   position: relative;
   overflow: hidden;
+  box-shadow: 0 0 30px rgba(255, 0, 110, 0.8);
 }
 
 .mega-card .card-header {
-  background: linear-gradient(135deg, #feca57 0%, #ff9ff3 50%, #feca57 100%);
-  background-size: 200% 200%;
-  animation: neonPulse 3s ease-in-out infinite;
+  background: linear-gradient(135deg, #ffbe0b 0%, #fb5607 25%, #ff4081 50%, #ffbe0b 75%, #06ffa5 100%);
+  background-size: 400% 400%;
+  animation: neonPulse 2s ease-in-out infinite;
   border-radius: 20px 20px 0 0;
   position: relative;
   overflow: hidden;
+  box-shadow: 0 0 30px rgba(255, 190, 11, 0.8);
 }
 
 .texas-card .card-header {
-  background: linear-gradient(135deg, #48dbfb 0%, #0abde3 50%, #48dbfb 100%);
-  background-size: 200% 200%;
-  animation: neonPulse 3s ease-in-out infinite;
+  background: linear-gradient(135deg, #3a86ff 0%, #8338ec 25%, #06ffa5 50%, #3a86ff 75%, #8338ec 100%);
+  background-size: 400% 400%;
+  animation: neonPulse 2s ease-in-out infinite;
   border-radius: 20px 20px 0 0;
   position: relative;
   overflow: hidden;
+  box-shadow: 0 0 30px rgba(58, 134, 255, 0.8);
 }
 
 .twostep-card .card-header {
-  background: linear-gradient(135deg, #1dd1a1 0%, #10ac84 50%, #1dd1a1 100%);
-  background-size: 200% 200%;
-  animation: neonPulse 3s ease-in-out infinite;
+  background: linear-gradient(135deg, #06ffa5 0%, #3a86ff 25%, #8338ec 50%, #06ffa5 75%, #9c27b0 100%);
+  background-size: 400% 400%;
+  animation: neonPulse 2s ease-in-out infinite;
   border-radius: 20px 20px 0 0;
   position: relative;
   overflow: hidden;
+  box-shadow: 0 0 30px rgba(6, 255, 165, 0.8);
 }
 
 @keyframes neonPulse {
@@ -879,23 +935,31 @@ body::after {
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 50%, #ff6b6b 100%);
-  animation: buttonGlow 3s ease-in-out infinite;
+  background: linear-gradient(135deg, #ff006e 0%, #fb5607 25%, #ff4081 50%, #e91e63 75%, #ff006e 100%);
+  background-size: 400% 400%;
+  animation: buttonGlow 2s ease-in-out infinite;
+  box-shadow: 0 0 30px rgba(255, 0, 110, 0.6);
 }
 
 .btn-success {
-  background: linear-gradient(135deg, #26de81 0%, #20bf6b 50%, #26de81 100%);
-  animation: buttonGlow 3s ease-in-out infinite;
+  background: linear-gradient(135deg, #06ffa5 0%, #3a86ff 25%, #8338ec 50%, #06ffa5 75%, #9c27b0 100%);
+  background-size: 400% 400%;
+  animation: buttonGlow 2s ease-in-out infinite;
+  box-shadow: 0 0 30px rgba(6, 255, 165, 0.6);
 }
 
 .btn-warning {
-  background: linear-gradient(135deg, #feca57 0%, #ff9ff3 50%, #feca57 100%);
-  animation: buttonGlow 3s ease-in-out infinite;
+  background: linear-gradient(135deg, #ffbe0b 0%, #fb5607 25%, #ff4081 50%, #ffbe0b 75%, #06ffa5 100%);
+  background-size: 400% 400%;
+  animation: buttonGlow 2s ease-in-out infinite;
+  box-shadow: 0 0 30px rgba(255, 190, 11, 0.6);
 }
 
 .btn-info {
-  background: linear-gradient(135deg, #54a0ff 0%, #2e86de 50%, #54a0ff 100%);
-  animation: buttonGlow 3s ease-in-out infinite;
+  background: linear-gradient(135deg, #3a86ff 0%, #8338ec 25%, #06ffa5 50%, #3a86ff 75%, #9c27b0 100%);
+  background-size: 400% 400%;
+  animation: buttonGlow 2s ease-in-out infinite;
+  box-shadow: 0 0 30px rgba(58, 134, 255, 0.6);
 }
 
 @keyframes buttonGlow {
@@ -907,9 +971,9 @@ body::after {
 .step-icon {
   width: 80px;
   height: 80px;
-  background: linear-gradient(135deg, #ff6b6b 0%, #feca57 25%, #48dbfb 50%, #ff9ff3 75%, #54a0ff 100%);
-  background-size: 400% 400%;
-  animation: orbitalGlow 4s ease infinite;
+  background: linear-gradient(135deg, #ff006e 0%, #fb5607 12.5%, #ffbe0b 25%, #8338ec 37.5%, #3a86ff 50%, #06ffa5 62.5%, #ff4081 75%, #e91e63 87.5%, #9c27b0 100%);
+  background-size: 600% 600%;
+  animation: orbitalGlow 3s ease infinite;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -920,7 +984,8 @@ body::after {
   margin: 0 auto 20px;
   box-shadow: 
     0 6px 20px rgba(0, 0, 0, 0.3),
-    0 0 30px rgba(255, 107, 107, 0.4);
+    0 0 40px rgba(255, 0, 110, 0.8),
+    0 0 80px rgba(255, 190, 11, 0.4);
   position: relative;
   transform-style: preserve-3d;
 }
@@ -957,11 +1022,12 @@ body::after {
 .navbar {
   background: rgba(255, 255, 255, 0.9) !important;
   backdrop-filter: blur(25px);
-  border-bottom: 3px solid transparent;
-  border-image: linear-gradient(90deg, #ff6b6b, #feca57, #48dbfb, #ff9ff3, #54a0ff) 1;
+  border-bottom: 4px solid transparent;
+  border-image: linear-gradient(90deg, #ff006e, #fb5607, #ffbe0b, #8338ec, #3a86ff, #06ffa5, #ff4081, #e91e63, #9c27b0) 1;
   box-shadow: 
     0 2px 10px rgba(0, 0, 0, 0.1),
-    0 0 30px rgba(255, 255, 255, 0.5);
+    0 0 40px rgba(255, 0, 110, 0.3),
+    0 0 80px rgba(255, 190, 11, 0.2);
   position: relative;
 }
 
@@ -986,11 +1052,13 @@ body::after {
   font-family: 'Orbitron', monospace;
   font-weight: 900;
   font-size: 1.8rem;
-  background: linear-gradient(135deg, #ff6b6b 0%, #feca57 25%, #48dbfb 50%, #ff9ff3 75%, #54a0ff 100%);
+  background: linear-gradient(135deg, #ff006e 0%, #fb5607 12.5%, #ffbe0b 25%, #8338ec 37.5%, #3a86ff 50%, #06ffa5 62.5%, #ff4081 75%, #e91e63 87.5%, #9c27b0 100%);
+  background-size: 600% 600%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  text-shadow: 0 0 20px rgba(255, 107, 107, 0.5);
+  animation: brandGlow 3s ease infinite;
+  text-shadow: 0 0 30px rgba(255, 0, 110, 0.8);
   position: relative;
   z-index: 2;
 }
@@ -1078,9 +1146,9 @@ body::after {
 .number-ball {
   width: 60px;
   height: 60px;
-  background: linear-gradient(135deg, #ff6b6b 0%, #feca57 25%, #48dbfb 50%, #ff9ff3 75%, #54a0ff 100%);
-  background-size: 400% 400%;
-  animation: ballOrbit 5s ease infinite;
+  background: linear-gradient(135deg, #ff006e 0%, #fb5607 12.5%, #ffbe0b 25%, #8338ec 37.5%, #3a86ff 50%, #06ffa5 62.5%, #ff4081 75%, #e91e63 87.5%, #9c27b0 100%);
+  background-size: 600% 600%;
+  animation: ballOrbit 3s ease infinite;
   border-radius: 50%;
   display: inline-flex;
   align-items: center;
@@ -1093,7 +1161,8 @@ body::after {
   box-shadow: 
     0 4px 15px rgba(0, 0, 0, 0.3),
     inset 0 2px 0 rgba(255, 255, 255, 0.4),
-    0 0 20px rgba(255, 107, 107, 0.5);
+    0 0 25px rgba(255, 0, 110, 0.8),
+    0 0 50px rgba(255, 190, 11, 0.4);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
@@ -1353,19 +1422,23 @@ h2, h3 {
 
 /* Additional unique utility classes */
 .text-primary {
-  color: #ff6b6b !important;
+  color: #ff006e !important;
+  text-shadow: 0 0 15px rgba(255, 0, 110, 0.6);
 }
 
 .text-success {
-  color: #26de81 !important;
+  color: #06ffa5 !important;
+  text-shadow: 0 0 15px rgba(6, 255, 165, 0.6);
 }
 
 .text-warning {
-  color: #feca57 !important;
+  color: #ffbe0b !important;
+  text-shadow: 0 0 15px rgba(255, 190, 11, 0.6);
 }
 
 .text-info {
-  color: #54a0ff !important;
+  color: #3a86ff !important;
+  text-shadow: 0 0 15px rgba(58, 134, 255, 0.6);
 }
 
 .text-muted {
@@ -1383,15 +1456,15 @@ h2, h3 {
 }
 
 .badge {
-  background: linear-gradient(135deg, #ff6b6b 0%, #feca57 25%, #48dbfb 50%, #ff9ff3 75%, #54a0ff 100%);
-  background-size: 400% 400%;
-  animation: badgeGlow 3s ease infinite;
+  background: linear-gradient(135deg, #ff006e 0%, #fb5607 12.5%, #ffbe0b 25%, #8338ec 37.5%, #3a86ff 50%, #06ffa5 62.5%, #ff4081 75%, #e91e63 87.5%, #9c27b0 100%);
+  background-size: 600% 600%;
+  animation: badgeGlow 2s ease infinite;
   color: white;
   padding: 8px 16px;
   border-radius: 15px;
   font-weight: 700;
   font-size: 0.875rem;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3), 0 0 25px rgba(255, 0, 110, 0.5);
 }
 
 @keyframes badgeGlow {
