@@ -78,6 +78,636 @@ body::after {
   z-index: 2;
 }
 
+/* Notification Banner */
+.notification-banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 15px 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  animation: slideDown 0.5s ease-out;
+  color: white;
+  font-weight: 600;
+}
+
+.notification-banner.info {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.notification-banner.success {
+  background: linear-gradient(135deg, #26de81 0%, #20bf6b 100%);
+}
+
+.notification-banner.error {
+  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+}
+
+@keyframes slideDown {
+  from { transform: translateY(-100%); }
+  to { transform: translateY(0); }
+}
+
+.notification-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-weight: 600;
+}
+
+.notification-icon {
+  font-size: 1.2rem;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+/* Loading Overlay */
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  backdrop-filter: blur(5px);
+}
+
+.loading-spinner {
+  text-align: center;
+  color: white;
+}
+
+.loading-spinner .spinner-border {
+  width: 3rem;
+  height: 3rem;
+  border-width: 0.3em;
+}
+
+/* History Stats */
+.history-stats {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.history-stats .badge {
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  border-radius: 20px;
+  font-weight: 600;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.history-stats .badge:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Empty State */
+.empty-state {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.empty-icon {
+  font-size: 4rem;
+  margin-bottom: 20px;
+  opacity: 0.7;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.empty-state h3 {
+  color: #374151;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.empty-state p {
+  color: #6b7280;
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+}
+
+/* Filter Cards */
+.filter-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(25px);
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.filter-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+}
+
+.filter-card h6 {
+  color: #374151;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.filter-card .form-select {
+  background: rgba(255, 255, 255, 0.9);
+  border: 2px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 10px 15px;
+  font-weight: 500;
+  color: #374151;
+  transition: all 0.3s ease;
+}
+
+.filter-card .form-select:focus {
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  outline: none;
+}
+
+/* Enhanced Ticket Items */
+.ticket-item {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(25px);
+  border: 3px solid transparent;
+  background-clip: padding-box;
+  border-radius: 20px;
+  padding: 25px;
+  margin-bottom: 20px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.ticket-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 20px;
+  padding: 3px;
+  background: linear-gradient(135deg, #ff6b6b, #feca57, #48dbfb, #ff9ff3);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  animation: holographicBorder 3s linear infinite;
+}
+
+@keyframes holographicBorder {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.ticket-item::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s;
+}
+
+.ticket-item:hover::after {
+  left: 100%;
+}
+
+.ticket-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Winner Ticket Enhancement */
+.winner-ticket {
+  border: 3px solid transparent;
+  background: linear-gradient(white, white) padding-box,
+              linear-gradient(135deg, #26de81, #20bf6b) border-box;
+  box-shadow: 0 4px 20px rgba(38, 222, 129, 0.3);
+}
+
+.winner-ticket::before {
+  background: linear-gradient(135deg, #26de81, #20bf6b, #26de81, #20bf6b);
+  animation: winnerBorder 2s linear infinite;
+}
+
+@keyframes winnerBorder {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+/* Ticket Header Section */
+.ticket-header-section {
+  position: relative;
+  z-index: 2;
+}
+
+.ticket-type-icon {
+  font-size: 1.8rem;
+  filter: drop-shadow(0 0 10px currentColor);
+}
+
+.ticket-type {
+  font-weight: 700;
+  color: #1e293b;
+  font-size: 1.1rem;
+}
+
+.ticket-price-small {
+  font-size: 0.8rem;
+  color: #26de81;
+  font-weight: 600;
+}
+
+/* Ticket Numbers Section */
+.ticket-numbers-section {
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 15px;
+  padding: 15px;
+  position: relative;
+  z-index: 2;
+}
+
+.number-ball-small {
+  width: 35px;
+  height: 35px;
+  background: linear-gradient(135deg, #ff6b6b 0%, #feca57 25%, #48dbfb 50%, #ff9ff3 75%, #54a0ff 100%);
+  background-size: 400% 400%;
+  animation: ballOrbitSmall 3s ease infinite;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 700;
+  font-size: 14px;
+  font-family: 'Orbitron', monospace;
+  margin: 3px;
+  box-shadow: 
+    0 2px 8px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.number-ball-small:hover {
+  transform: scale(1.1);
+  box-shadow: 
+    0 4px 12px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+@keyframes ballOrbitSmall {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Ticket Details */
+.ticket-details {
+  position: relative;
+  z-index: 2;
+}
+
+/* Winner Celebration */
+.winner-celebration {
+  background: linear-gradient(135deg, #26de81 0%, #20bf6b 100%);
+  color: white;
+  padding: 15px;
+  border-radius: 15px;
+  text-align: center;
+  margin-top: 15px;
+  box-shadow: 0 4px 15px rgba(38, 222, 129, 0.4);
+  animation: celebrationGlow 2s ease-in-out infinite;
+}
+
+@keyframes celebrationGlow {
+  0%, 100% { box-shadow: 0 4px 15px rgba(38, 222, 129, 0.4); }
+  50% { box-shadow: 0 6px 20px rgba(38, 222, 129, 0.6); }
+}
+
+.celebration-content h6 {
+  margin-bottom: 5px;
+  font-weight: 700;
+}
+
+.celebration-content small {
+  opacity: 0.9;
+}
+
+/* Enhanced Statistics */
+.stats-item {
+  padding: 20px;
+  border-radius: 15px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.stats-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+  border-radius: 15px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.stats-item:hover::before {
+  opacity: 1;
+}
+
+.stats-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.stats-item h3 {
+  font-size: 2.5rem;
+  margin-bottom: 8px;
+  font-family: 'Orbitron', monospace;
+  font-weight: 900;
+}
+
+.stats-item p {
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.stats-item small {
+  font-size: 0.8rem;
+  opacity: 0.8;
+}
+
+/* Game Stats */
+.game-stats {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.game-stats .badge {
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  border-radius: 20px;
+  font-weight: 600;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.game-stats .badge:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Enhanced Game Details */
+.game-details {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 20px;
+  backdrop-filter: blur(10px);
+}
+
+.game-details p {
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.game-details .small {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.game-details .small div {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+
+/* Success Modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3000;
+  backdrop-filter: blur(5px);
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.success-modal {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(25px);
+  border-radius: 20px;
+  max-width: 500px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.modal-header {
+  display: flex;
+  justify-content: between;
+  align-items: center;
+  padding: 20px 25px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.modal-header h4 {
+  margin: 0;
+  color: #1e293b;
+  font-weight: 700;
+  flex-grow: 1;
+}
+
+.btn-close {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #6b7280;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.btn-close:hover {
+  background: rgba(255, 107, 107, 0.1);
+  color: #ff6b6b;
+}
+
+.modal-body {
+  padding: 25px;
+}
+
+.ticket-preview {
+  text-align: center;
+}
+
+.ticket-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 15px;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+  border-radius: 15px;
+}
+
+.ticket-header h5 {
+  margin: 0;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.ticket-price {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #26de81;
+  background: rgba(38, 222, 129, 0.1);
+  padding: 5px 15px;
+  border-radius: 20px;
+}
+
+.ticket-numbers {
+  margin-bottom: 25px;
+}
+
+.ticket-numbers p {
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 15px;
+}
+
+.numbers-display {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.ticket-info {
+  background: rgba(255, 255, 255, 0.5);
+  padding: 20px;
+  border-radius: 15px;
+  text-align: left;
+}
+
+.ticket-info p {
+  margin-bottom: 8px;
+  color: #374151;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  padding: 20px 25px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.modal-footer .btn {
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.modal-footer .btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Quick Actions Card */
+.quick-actions-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(25px);
+  border-radius: 20px;
+  box-shadow: 
+    0 6px 30px rgba(0, 0, 0, 0.15),
+    0 0 40px rgba(255, 255, 255, 0.5);
+  position: relative;
+  overflow: hidden;
+}
+
+.quick-actions-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+  border-radius: 20px;
+}
+
+.quick-actions-card .btn {
+  position: relative;
+  z-index: 2;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.quick-actions-card .btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.quick-actions-card .btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
 /* Unique morphing lottery cards */
 .lottery-card {
   background: rgba(255, 255, 255, 0.95);
@@ -117,45 +747,41 @@ body::after {
   border-radius: 25px;
 }
 
-/* Unique morphing card headers with neon effects */
+/* Enhanced card headers with better gradients */
 .powerball-card .card-header {
   background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 50%, #ff6b6b 100%);
   background-size: 200% 200%;
   animation: neonPulse 3s ease-in-out infinite;
-  color: white;
+  border-radius: 20px 20px 0 0;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 0 20px rgba(255, 107, 107, 0.6);
 }
 
 .mega-card .card-header {
-  background: linear-gradient(135deg, #a55eea 0%, #8b5cf6 50%, #a55eea 100%);
+  background: linear-gradient(135deg, #feca57 0%, #ff9ff3 50%, #feca57 100%);
   background-size: 200% 200%;
   animation: neonPulse 3s ease-in-out infinite;
-  color: white;
+  border-radius: 20px 20px 0 0;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 0 20px rgba(165, 94, 234, 0.6);
 }
 
 .texas-card .card-header {
-  background: linear-gradient(135deg, #26de81 0%, #20bf6b 50%, #26de81 100%);
+  background: linear-gradient(135deg, #48dbfb 0%, #0abde3 50%, #48dbfb 100%);
   background-size: 200% 200%;
   animation: neonPulse 3s ease-in-out infinite;
-  color: white;
+  border-radius: 20px 20px 0 0;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 0 20px rgba(38, 222, 129, 0.6);
 }
 
 .twostep-card .card-header {
-  background: linear-gradient(135deg, #fd79a8 0%, #e84393 50%, #fd79a8 100%);
+  background: linear-gradient(135deg, #1dd1a1 0%, #10ac84 50%, #1dd1a1 100%);
   background-size: 200% 200%;
   animation: neonPulse 3s ease-in-out infinite;
-  color: white;
+  border-radius: 20px 20px 0 0;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 0 20px rgba(253, 121, 168, 0.6);
 }
 
 @keyframes neonPulse {
@@ -170,14 +796,13 @@ body::after {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.4) 50%, transparent 70%);
-  opacity: 0;
-  transition: opacity 0.3s ease;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.6s;
 }
 
 .lottery-card:hover .card-header::after {
-  opacity: 1;
-  animation: shimmer 1s ease-in-out;
+  transform: translateX(100%);
 }
 
 @keyframes shimmer {
@@ -185,7 +810,6 @@ body::after {
   100% { transform: translateX(100%); }
 }
 
-/* Unique morphing price tags */
 .price-tag {
   background: linear-gradient(135deg, #00b894 0%, #00a085 50%, #00b894 100%);
   background-size: 200% 200%;
@@ -227,6 +851,12 @@ body::after {
   background-size: 200% 200%;
 }
 
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
 .btn::before {
   content: '';
   position: absolute;
@@ -243,7 +873,7 @@ body::after {
   transform: translateX(100%);
 }
 
-.btn:hover {
+.btn:hover:not(:disabled) {
   transform: translateY(-3px) rotateX(10deg);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
 }
@@ -365,6 +995,13 @@ body::after {
   z-index: 2;
 }
 
+.navbar-text {
+  color: #6b7280 !important;
+  font-weight: 600;
+  position: relative;
+  z-index: 2;
+}
+
 /* Unique form controls with neon focus */
 .form-control {
   background: rgba(255, 255, 255, 0.95);
@@ -388,112 +1025,56 @@ body::after {
   transform: translateY(-2px);
 }
 
-/* Unique ticket items with holographic borders */
-.ticket-item {
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(25px);
-  border: 3px solid transparent;
-  background-clip: padding-box;
-  border-radius: 20px;
-  padding: 25px;
-  margin-bottom: 20px;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-  overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-}
-
-.ticket-item::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  border-radius: 20px;
-  padding: 3px;
-  background: linear-gradient(135deg, #ff6b6b, #feca57, #48dbfb, #ff9ff3);
-  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  mask-composite: exclude;
-  animation: holographicBorder 3s linear infinite;
-}
-
-@keyframes holographicBorder {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-.ticket-item::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-  transition: left 0.6s;
-}
-
-.ticket-item:hover::after {
-  left: 100%;
-}
-
-.ticket-item:hover {
-  transform: translateY(-5px) rotateX(5deg);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
-}
-
-/* Unique winner/loser badges with pulsing effects */
+/* Unique winner/loser badges */
 .winner-badge {
-  background: linear-gradient(135deg, #26de81 0%, #20bf6b 50%, #26de81 100%);
-  background-size: 200% 200%;
-  animation: winnerPulse 2s ease-in-out infinite;
+  background: linear-gradient(135deg, #26de81 0%, #20bf6b 100%);
   color: white;
   padding: 8px 16px;
   border-radius: 20px;
   font-weight: 700;
-  font-size: 0.875rem;
-  box-shadow: 0 4px 15px rgba(38, 222, 129, 0.6);
-  position: relative;
-  overflow: hidden;
+  font-size: 0.8rem;
+  box-shadow: 0 4px 15px rgba(38, 222, 129, 0.4);
+  animation: winnerPulse 2s ease-in-out infinite;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 @keyframes winnerPulse {
   0%, 100% { 
-    background-position: 0% 50%;
     transform: scale(1);
+    box-shadow: 0 4px 15px rgba(38, 222, 129, 0.4);
   }
   50% { 
-    background-position: 100% 50%;
     transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(38, 222, 129, 0.6);
   }
 }
 
 .loser-badge {
-  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 50%, #ff6b6b 100%);
-  background-size: 200% 200%;
-  animation: loserPulse 2s ease-in-out infinite;
+  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
   color: white;
   padding: 8px 16px;
   border-radius: 20px;
   font-weight: 700;
-  font-size: 0.875rem;
-  box-shadow: 0 4px 15px rgba(255, 107, 107, 0.6);
+  font-size: 0.8rem;
+  box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+  animation: loserPulse 2s ease-in-out infinite;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 @keyframes loserPulse {
   0%, 100% { 
-    background-position: 0% 50%;
-    opacity: 1;
+    transform: scale(1);
+    opacity: 0.8;
   }
   50% { 
-    background-position: 100% 50%;
-    opacity: 0.8;
+    transform: scale(1.02);
+    opacity: 1;
   }
 }
 
-/* Unique 3D number balls with orbital glow */
+/* Unique 3D number balls */
 .number-ball {
   width: 60px;
   height: 60px;
@@ -689,6 +1270,12 @@ h2, h3 {
     font-size: 16px;
   }
   
+  .number-ball-small {
+    width: 30px;
+    height: 30px;
+    font-size: 12px;
+  }
+  
   h1 {
     font-size: 2.5rem;
   }
@@ -700,6 +1287,67 @@ h2, h3 {
   
   .winning-numbers-container {
     padding: 30px;
+  }
+  
+  .game-stats {
+    gap: 5px;
+  }
+  
+  .game-stats .badge {
+    font-size: 0.8rem;
+    padding: 6px 12px;
+  }
+  
+  .history-stats {
+    gap: 5px;
+  }
+  
+  .history-stats .badge {
+    font-size: 0.8rem;
+    padding: 6px 12px;
+  }
+  
+  .success-modal {
+    width: 95%;
+    margin: 20px;
+  }
+  
+  .modal-footer {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .modal-footer .btn {
+    width: 100%;
+  }
+  
+  .numbers-display {
+    gap: 8px;
+  }
+  
+  .game-details .small {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .ticket-item {
+    padding: 20px;
+  }
+  
+  .ticket-type-icon {
+    font-size: 1.5rem;
+  }
+  
+  .stats-item h3 {
+    font-size: 2rem;
+  }
+  
+  .empty-icon {
+    font-size: 3rem;
+  }
+  
+  .filter-card {
+    margin-bottom: 15px;
   }
 }
 
@@ -777,10 +1425,31 @@ h2, h3 {
   mask-composite: exclude;
 }
 
-.btn-outline-light:hover {
+.btn-outline-light:hover:not(:disabled) {
   background: linear-gradient(135deg, #ff6b6b 0%, #feca57 100%);
   color: white;
   transform: translateY(-2px);
   box-shadow: 0 4px 15px rgba(255, 107, 107, 0.5);
+}
+
+.btn-outline-light:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Focus and accessibility improvements */
+.btn:focus,
+.btn-outline-light:focus {
+  outline: 3px solid #667eea;
+  outline-offset: 2px;
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
   
