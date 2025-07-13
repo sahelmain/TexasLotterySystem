@@ -1,11 +1,18 @@
 import React, { useState } from "react"; 
+import { useNavigate } from "react-router-dom";
 
 const Admin = () => {
+    const navigate = useNavigate();
     //sets initial val to 0
-    const [mega, setMega] = useState(0);
-    const [power, setPower] = useState(0);
-    const [texasLotto, setTexasLotto] = useState(0);
-    const [texasStep, setTexasStep] = useState(0); 
+    const [mega, setMega] = useState([]);
+    const [power, setPower] = useState([]);
+    const [texasLotto, setTexasLotto] = useState([]);
+    const [texasStep, setTexasStep] = useState([]); 
+    
+    const goHome = () => {
+        navigate("/Home");
+    };
+    
     //Gets random int between two values
     const randomNumber = (min, max) => {
         min = Math.ceil(min);
@@ -60,16 +67,128 @@ const Admin = () => {
         console.error("Error storing winning numbers:", error);
       }
     }; 
+    
     return ( 
-        <div className="wrapper"> 
-            <div className="num">Winning numbers for Mega Millions: {mega.join(', ')}</div>
-            <div className="num">Winning numbers for Power Ball: {power.join(', ')}</div>
-            <div className="num">Winning numbers for Lotto Texas: {texasLotto.join(', ')}</div>
-            <div className="num">Winning numbers for Texas Two Step: {texasStep.join(', ')}</div>
-            <button onClick={onButtonClick}>
-              Generate and Store New Winning Numbers
-            </button>
-        </div> 
+        <div className="admin-container">
+            {/* Header */}
+            <nav className="navbar navbar-expand-lg navbar-dark">
+                <div className="container">
+                    <span className="navbar-brand fw-bold">🎰 Texas Lottery Admin</span>
+                    <button className="btn btn-outline-light" onClick={goHome}>
+                        🏠 Home
+                    </button>
+                </div>
+            </nav>
+
+            <div className="container mt-5">
+                <div className="row justify-content-center">
+                    <div className="col-md-10">
+                        <div className="admin-card p-5">
+                            <div className="text-center mb-5">
+                                <h1 className="display-4 fw-bold mb-3">
+                                    🎲 Admin Control Panel
+                                </h1>
+                                <p className="lead">
+                                    Generate and manage winning numbers for all lottery games
+                                </p>
+                            </div>
+
+                            {/* Current Winning Numbers */}
+                            <div className="row g-4 mb-5">
+                                <div className="col-md-6">
+                                    <div className="winning-numbers-container">
+                                        <h3 className="text-center mb-3">🔴 Power Ball</h3>
+                                        <div className="text-center">
+                                            {power.length > 0 ? (
+                                                <div>
+                                                    {power.map((num, index) => (
+                                                        <span key={index} className="number-ball me-2">
+                                                            {num}
+                                                        </span>
+                                                    ))}
+                                                </div>
+                                            ) : (
+                                                <p className="text-muted">Click generate to see numbers</p>
+                                            )}
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className="col-md-6">
+                                    <div className="winning-numbers-container">
+                                        <h3 className="text-center mb-3">🟡 Mega Millions</h3>
+                                        <div className="text-center">
+                                            {mega.length > 0 ? (
+                                                <div>
+                                                    {mega.map((num, index) => (
+                                                        <span key={index} className="number-ball me-2">
+                                                            {num}
+                                                        </span>
+                                                    ))}
+                                                </div>
+                                            ) : (
+                                                <p className="text-muted">Click generate to see numbers</p>
+                                            )}
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className="col-md-6">
+                                    <div className="winning-numbers-container">
+                                        <h3 className="text-center mb-3">⭐ Lotto Texas</h3>
+                                        <div className="text-center">
+                                            {texasLotto.length > 0 ? (
+                                                <div>
+                                                    {texasLotto.map((num, index) => (
+                                                        <span key={index} className="number-ball me-2">
+                                                            {num}
+                                                        </span>
+                                                    ))}
+                                                </div>
+                                            ) : (
+                                                <p className="text-muted">Click generate to see numbers</p>
+                                            )}
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className="col-md-6">
+                                    <div className="winning-numbers-container">
+                                        <h3 className="text-center mb-3">🌟 Texas Two Step</h3>
+                                        <div className="text-center">
+                                            {texasStep.length > 0 ? (
+                                                <div>
+                                                    {texasStep.map((num, index) => (
+                                                        <span key={index} className="number-ball me-2">
+                                                            {num}
+                                                        </span>
+                                                    ))}
+                                                </div>
+                                            ) : (
+                                                <p className="text-muted">Click generate to see numbers</p>
+                                            )}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Generate Button */}
+                            <div className="text-center">
+                                <button 
+                                    className="btn btn-primary btn-lg px-5 py-3"
+                                    onClick={onButtonClick}
+                                >
+                                    🎯 Generate New Winning Numbers
+                                </button>
+                                <p className="mt-3 text-muted">
+                                    This will generate new winning numbers for all lottery games
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     ); 
 }; 
 

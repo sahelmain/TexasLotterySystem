@@ -44,28 +44,139 @@ const OrderHistory = () => {
     return Math.random() < 0.1; // 10% chance of winning for demo
   };
 
-  //iterates over userTickets and creates a list item for each number and type
-  const myList = userTickets.map((item, index) => (
-    <li key={index}>
-      {item.type} #{item.number}: {isWinner(item) ? 'Winner!' : 'Not a Winning Number'}
-    </li>
-  ));
+  const getTicketIcon = (type) => {
+    switch(type) {
+      case 'Power Ball': return '🔴';
+      case 'Mega Millions': return '🟡';
+      case 'Lotto Texas': return '⭐';
+      case 'Texas Two Step': return '🌟';
+      default: return '🎫';
+    }
+  };
+
+  const formatDate = (dateString) => {
+    return new Date(dateString).toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit'
+    });
+  };
 
   return (
-    <div>
-      <div className="topnav">
-        <div className="homeRoute">
-          <button className="button" onClick={goHome}>
-            Home
+    <div className="page-container">
+      {/* Header */}
+      <nav className="navbar navbar-expand-lg navbar-dark">
+        <div className="container">
+          <span className="navbar-brand fw-bold">🎰 Texas Lottery System</span>
+          <button className="btn btn-outline-light" onClick={goHome}>
+            🏠 Home
           </button>
         </div>
-      </div>
+      </nav>
 
-      <h1>Order History</h1>
+      <div className="container mt-5">
+        <div className="row justify-content-center">
+          <div className="col-md-10">
+            <div className="text-center mb-5">
+              <h1 className="display-4 fw-bold mb-3">📋 Order History</h1>
+              <p className="lead">Track your lottery tickets and check winning status</p>
+            </div>
 
-      <div className="order-history">
-        <h2>Your Lottery Tickets:</h2>
-        <ul>{myList}</ul>
+            {userTickets.length === 0 ? (
+              <div className="text-center">
+                <div className="winning-numbers-container p-5">
+                  <h3 className="mb-3">🎫 No Tickets Found</h3>
+                  <p className="text-muted mb-4">You haven't purchased any lottery tickets yet.</p>
+                  <button 
+                    className="btn btn-primary"
+                    onClick={() => navigate('/browse_lottery_tickets')}
+                  >
+                    🎯 Buy Your First Ticket
+                  </button>
+                </div>
+              </div>
+            ) : (
+              <div className="row g-4">
+                {userTickets.map((ticket, index) => {
+                  const winner = isWinner(ticket);
+                  return (
+                    <div key={index} className="col-md-6 col-lg-4">
+                      <div className="ticket-item">
+                        <div className="d-flex justify-content-between align-items-center mb-3">
+                          <div className="d-flex align-items-center">
+                            <span className="me-2" style={{fontSize: '1.5rem'}}>
+                              {getTicketIcon(ticket.type)}
+                            </span>
+                            <h5 className="mb-0">{ticket.type}</h5>
+                          </div>
+                          <span className={winner ? 'winner-badge' : 'loser-badge'}>
+                            {winner ? '🏆 Winner!' : '❌ Not Winner'}
+                          </span>
+                        </div>
+                        
+                        <div className="mb-3">
+                          <div className="d-flex justify-content-between">
+                            <span className="text-muted">Ticket #:</span>
+                            <span className="fw-bold">{ticket.number}</span>
+                          </div>
+                          <div className="d-flex justify-content-between">
+                            <span className="text-muted">Date:</span>
+                            <span>{formatDate(ticket.date)}</span>
+                          </div>
+                        </div>
+
+                        {winner && (
+                          <div className="text-center p-3 rounded" style={{
+                            background: 'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)',
+                            color: 'white'
+                          }}>
+                            <h6 className="mb-1">🎉 Congratulations!</h6>
+                            <small>You won this draw!</small>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            )}
+
+            {/* Statistics */}
+            {userTickets.length > 0 && (
+              <div className="mt-5">
+                <div className="winning-numbers-container">
+                  <h4 className="text-center mb-4">📊 Your Statistics</h4>
+                  <div className="row text-center">
+                    <div className="col-md-3">
+                      <h3 className="text-primary fw-bold">{userTickets.length}</h3>
+                      <p className="text-muted mb-0">Total Tickets</p>
+                    </div>
+                    <div className="col-md-3">
+                      <h3 className="text-success fw-bold">
+                        {userTickets.filter(ticket => isWinner(ticket)).length}
+                      </h3>
+                      <p className="text-muted mb-0">Winning Tickets</p>
+                    </div>
+                    <div className="col-md-3">
+                      <h3 className="text-warning fw-bold">
+                        {Math.round((userTickets.filter(ticket => isWinner(ticket)).length / userTickets.length) * 100)}%
+                      </h3>
+                      <p className="text-muted mb-0">Win Rate</p>
+                    </div>
+                    <div className="col-md-3">
+                      <h3 className="text-info fw-bold">
+                        {new Set(userTickets.map(ticket => ticket.type)).size}
+                      </h3>
+                      <p className="text-muted mb-0">Game Types</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
       </div>
     </div>
   );
