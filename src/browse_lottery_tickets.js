@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import './style.css';
 import { useNavigate } from "react-router-dom";
 
-
 const BrowseLotteryTickets = () => {
   const navigate = useNavigate();
   const [ticketName,setTicketName] = useState("")
@@ -74,45 +73,136 @@ useEffect(() => {
   };
   
   return (
-    <div>
-      <div className="topnav">
-        <div className="homeRoute">
-          <button className="button" onClick={goHome}>
-          Home
+    <div className="page-container">
+      {/* Header */}
+      <nav className="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
+        <div className="container">
+          <span className="navbar-brand fw-bold">🎰 Texas Lottery System</span>
+          <button className="btn btn-outline-light" onClick={goHome}>
+            🏠 Home
           </button>
+        </div>
+      </nav>
+
+      <div className="container mt-5">
+        <div className="text-center mb-5">
+          <h1 className="display-4 fw-bold text-primary mb-3">Browse Lottery Tickets</h1>
+          <p className="lead text-muted">Choose your lucky numbers and win big!</p>
+        </div>
+
+        <div className="row g-4">
+          <div className="col-md-6 col-lg-3">
+            <div className="card h-100 shadow-lg border-0 lottery-card powerball-card">
+              <div className="card-header bg-gradient text-white text-center">
+                <h4 className="mb-0">🔴 Power Ball</h4>
+              </div>
+              <div className="card-body text-center p-4">
+                <div className="price-tag mb-3">
+                  <span className="h2 fw-bold text-success">$2</span>
+                </div>
+                <div className="mb-3">
+                  <small className="text-muted">📅 Every Wednesday & Saturday</small>
+                </div>
+                <p className="card-text">5 white balls (1-69) + 1 Powerball (1-26)</p>
+                <button className="btn btn-primary btn-lg w-100 rounded-pill" onClick={powerBall}>
+                  🎫 Buy Ticket
+                </button>
+              </div>
+            </div>
           </div>
-      </div>
 
-      <h1>Browse Lottery Tickets</h1>
+          <div className="col-md-6 col-lg-3">
+            <div className="card h-100 shadow-lg border-0 lottery-card mega-card">
+              <div className="card-header bg-gradient text-white text-center">
+                <h4 className="mb-0">🟡 Mega Millions</h4>
+              </div>
+              <div className="card-body text-center p-4">
+                <div className="price-tag mb-3">
+                  <span className="h2 fw-bold text-success">$2</span>
+                </div>
+                <div className="mb-3">
+                  <small className="text-muted">📅 Every Tuesday & Friday</small>
+                </div>
+                <p className="card-text">5 white balls (1-70) + 1 Mega Ball (1-25)</p>
+                <button className="btn btn-warning btn-lg w-100 rounded-pill" onClick={megaMillion}>
+                  🎫 Buy Ticket
+                </button>
+              </div>
+            </div>
+          </div>
 
-      <div className="ticket-container">
-        <div className="ticket">
-          <h2>Power Ball</h2>
-          <p>Cost: $2</p>
-          <p>Drawing Date: Every Wednesday and Saturday</p>
-          <button className="button" onClick={powerBall}>
-          Buy a ticket</button>
+          <div className="col-md-6 col-lg-3">
+            <div className="card h-100 shadow-lg border-0 lottery-card texas-card">
+              <div className="card-header bg-gradient text-white text-center">
+                <h4 className="mb-0">⭐ Lotto Texas</h4>
+              </div>
+              <div className="card-body text-center p-4">
+                <div className="price-tag mb-3">
+                  <span className="h2 fw-bold text-success">$1</span>
+                </div>
+                <div className="mb-3">
+                  <small className="text-muted">📅 Every Wednesday & Saturday</small>
+                </div>
+                <p className="card-text">6 balls from 1 to 54</p>
+                <button className="btn btn-info btn-lg w-100 rounded-pill" onClick={lottoTexas}>
+                  🎫 Buy Ticket
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div className="col-md-6 col-lg-3">
+            <div className="card h-100 shadow-lg border-0 lottery-card twostep-card">
+              <div className="card-header bg-gradient text-white text-center">
+                <h4 className="mb-0">🌟 Texas Two Step</h4>
+              </div>
+              <div className="card-body text-center p-4">
+                <div className="price-tag mb-3">
+                  <span className="h2 fw-bold text-success">$1.50</span>
+                </div>
+                <div className="mb-3">
+                  <small className="text-muted">📅 Every Monday & Thursday</small>
+                </div>
+                <p className="card-text">4 white balls (1-35) + 1 bonus (1-35)</p>
+                <button className="btn btn-success btn-lg w-100 rounded-pill" onClick={texasTwoStep}>
+                  🎫 Buy Ticket
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div className="ticket">
-          <h2>Mega Millions</h2>
-          <p>Cost: $2</p>
-          <p>Drawing Date: Every Tuesday and Friday</p>
-          <button className="button" onClick={megaMillion}>Buy Ticket</button>
-        </div>
-
-        <div className="ticket">
-          <h2>Lotto Texas</h2>
-          <p>Cost: $1</p>
-          <p>Drawing Date: Every Wednesday and Saturday</p>
-          <button className="button" onClick={lottoTexas}>Buy Ticket</button>
-        </div>
-
-        <div className="ticket">
-          <h2>Texas Two Step</h2>
-          <p>Cost: $1.50</p>
-          <p>Drawing Date: Every Monday and Thursday</p>
-          <button className="button"onClick={texasTwoStep}>Buy Ticket</button>
+        {/* Info Section */}
+        <div className="row mt-5">
+          <div className="col-12">
+            <div className="card bg-light border-0 shadow-sm">
+              <div className="card-body p-4">
+                <h5 className="text-center mb-4">🎯 How It Works</h5>
+                <div className="row text-center">
+                  <div className="col-md-3">
+                    <div className="step-icon mb-2">1️⃣</div>
+                    <h6>Choose Game</h6>
+                    <small className="text-muted">Select your favorite lottery</small>
+                  </div>
+                  <div className="col-md-3">
+                    <div className="step-icon mb-2">2️⃣</div>
+                    <h6>Buy Ticket</h6>
+                    <small className="text-muted">Get your random numbers</small>
+                  </div>
+                  <div className="col-md-3">
+                    <div className="step-icon mb-2">3️⃣</div>
+                    <h6>Wait for Draw</h6>
+                    <small className="text-muted">Check the drawing dates</small>
+                  </div>
+                  <div className="col-md-3">
+                    <div className="step-icon mb-2">4️⃣</div>
+                    <h6>Check Results</h6>
+                    <small className="text-muted">See if you won!</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
