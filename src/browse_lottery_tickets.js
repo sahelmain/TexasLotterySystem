@@ -391,24 +391,31 @@ const BrowseLotteryTickets = () => {
                 <div className="d-flex justify-content-center gap-3 flex-wrap">
                   <button 
                     className="btn btn-outline-primary rounded-pill px-4"
-                    onClick={() => navigate('/orderHistory')}
+                    onClick={() => navigate('/multi-purchase')}
                     disabled={isLoading}
                   >
-                    📊 View History
+                    🛒 Bulk Purchase
                   </button>
                   <button 
                     className="btn btn-outline-success rounded-pill px-4"
-                    onClick={() => navigate('/prevNumbers')}
+                    onClick={() => navigate('/favorites')}
                     disabled={isLoading}
                   >
-                    🏆 Winning Numbers
+                    💫 Favorites
                   </button>
                   <button 
                     className="btn btn-outline-info rounded-pill px-4"
-                    onClick={() => navigate('/ManageTickets')}
+                    onClick={() => navigate('/stats')}
                     disabled={isLoading}
                   >
-                    ⚙️ Manage Tickets
+                    📊 Statistics
+                  </button>
+                  <button 
+                    className="btn btn-outline-warning rounded-pill px-4"
+                    onClick={() => navigate('/orderHistory')}
+                    disabled={isLoading}
+                  >
+                    📋 History
                   </button>
                 </div>
               </div>

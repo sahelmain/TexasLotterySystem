@@ -93,15 +93,16 @@ const Home = () => {
                 Your gateway to exciting lottery games and winning opportunities
               </p>
               <div className="welcome-stats mt-4">
-                <span className="badge bg-primary me-2">🎯 4 Games Available</span>
+                <span className="badge bg-primary me-2">🎯 6 Features Available</span>
                 <span className="badge bg-success me-2">💰 $2M+ Jackpots</span>
-                <span className="badge bg-info">🕒 24/7 Access</span>
+                <span className="badge bg-warning me-2">🛒 Bulk Purchase</span>
+                <span className="badge bg-info">💫 Favorites System</span>
               </div>
             </div>
 
             {/* Feature Cards */}
             <div className="row g-4">
-              <div className="col-md-6 col-lg-3">
+              <div className="col-md-6 col-lg-4">
                 <div 
                   className="card h-100 shadow-sm border-0 feature-card" 
                   onClick={browseTickets}
@@ -123,20 +124,42 @@ const Home = () => {
                 </div>
               </div>
 
-              <div className="col-md-6 col-lg-3">
+              <div className="col-md-6 col-lg-4">
                 <div 
                   className="card h-100 shadow-sm border-0 feature-card" 
-                  onClick={manageTickets}
+                  onClick={() => handleNavigation("/multi-purchase", "Loading multi-ticket purchase...")}
                   role="button"
                   tabIndex="0"
-                  aria-label="Manage your custom lottery tickets"
-                  onKeyPress={(e) => e.key === 'Enter' && manageTickets()}
+                  aria-label="Buy multiple tickets at once with bulk discounts"
+                  onKeyPress={(e) => e.key === 'Enter' && handleNavigation("/multi-purchase", "Loading multi-ticket purchase...")}
                 >
                   <div className="card-body text-center p-4">
-                    <div className="feature-icon mb-3">⚙️</div>
-                    <h5 className="card-title fw-bold">Manage Tickets</h5>
+                    <div className="feature-icon mb-3">🛒</div>
+                    <h5 className="card-title fw-bold">Multi-Purchase</h5>
                     <p className="card-text text-muted">
-                      Add and organize your custom lottery tickets
+                      Buy multiple tickets at once with bulk discounts
+                    </p>
+                    <div className="card-action-hint">
+                      <small className="text-primary">Click to buy bulk →</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="col-md-6 col-lg-4">
+                <div 
+                  className="card h-100 shadow-sm border-0 feature-card" 
+                  onClick={() => handleNavigation("/favorites", "Loading your favorites...")}
+                  role="button"
+                  tabIndex="0"
+                  aria-label="Manage your favorite lottery numbers"
+                  onKeyPress={(e) => e.key === 'Enter' && handleNavigation("/favorites", "Loading your favorites...")}
+                >
+                  <div className="card-body text-center p-4">
+                    <div className="feature-icon mb-3">💫</div>
+                    <h5 className="card-title fw-bold">Favorite Numbers</h5>
+                    <p className="card-text text-muted">
+                      Save and play your lucky numbers anytime
                     </p>
                     <div className="card-action-hint">
                       <small className="text-primary">Click to manage →</small>
@@ -145,7 +168,7 @@ const Home = () => {
                 </div>
               </div>
 
-              <div className="col-md-6 col-lg-3">
+              <div className="col-md-6 col-lg-4">
                 <div 
                   className="card h-100 shadow-sm border-0 feature-card" 
                   onClick={orderHistory}
@@ -167,7 +190,29 @@ const Home = () => {
                 </div>
               </div>
 
-              <div className="col-md-6 col-lg-3">
+              <div className="col-md-6 col-lg-4">
+                <div 
+                  className="card h-100 shadow-sm border-0 feature-card" 
+                  onClick={() => handleNavigation("/stats", "Loading your statistics...")}
+                  role="button"
+                  tabIndex="0"
+                  aria-label="View detailed lottery statistics and analytics"
+                  onKeyPress={(e) => e.key === 'Enter' && handleNavigation("/stats", "Loading your statistics...")}
+                >
+                  <div className="card-body text-center p-4">
+                    <div className="feature-icon mb-3">📊</div>
+                    <h5 className="card-title fw-bold">Statistics</h5>
+                    <p className="card-text text-muted">
+                      Detailed analytics and performance insights
+                    </p>
+                    <div className="card-action-hint">
+                      <small className="text-primary">Click to analyze →</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="col-md-6 col-lg-4">
                 <div 
                   className="card h-100 shadow-sm border-0 feature-card" 
                   onClick={prevWins}
@@ -199,9 +244,9 @@ const Home = () => {
                     <div className="row text-center">
                       <div className="col-md-3">
                         <div className="stats-item">
-                          <h3 className="text-primary fw-bold">4</h3>
-                          <p className="text-muted mb-0">Lottery Games</p>
-                          <small className="text-muted">Powerball, Mega Millions, Lotto Texas, Two Step</small>
+                          <h3 className="text-primary fw-bold">6</h3>
+                          <p className="text-muted mb-0">Features</p>
+                          <small className="text-muted">Complete lottery management system</small>
                         </div>
                       </div>
                       <div className="col-md-3">
@@ -213,9 +258,9 @@ const Home = () => {
                       </div>
                       <div className="col-md-3">
                         <div className="stats-item">
-                          <h3 className="text-warning fw-bold">3x</h3>
-                          <p className="text-muted mb-0">Weekly Draws</p>
-                          <small className="text-muted">Multiple chances to win each week</small>
+                          <h3 className="text-warning fw-bold">50</h3>
+                          <p className="text-muted mb-0">Max Bulk Buy</p>
+                          <small className="text-muted">Tickets in single purchase</small>
                         </div>
                       </div>
                       <div className="col-md-3">
@@ -247,17 +292,24 @@ const Home = () => {
                       </button>
                       <button 
                         className="btn btn-outline-primary btn-lg rounded-pill px-4"
-                        onClick={orderHistory}
+                        onClick={() => handleNavigation("/multi-purchase", "Loading multi-purchase...")}
                         disabled={isLoading}
                       >
-                        📊 View History
+                        🛒 Bulk Buy
                       </button>
                       <button 
                         className="btn btn-outline-success btn-lg rounded-pill px-4"
-                        onClick={prevWins}
+                        onClick={() => handleNavigation("/favorites", "Loading favorites...")}
                         disabled={isLoading}
                       >
-                        🏆 Check Numbers
+                        💫 Favorites
+                      </button>
+                      <button 
+                        className="btn btn-outline-info btn-lg rounded-pill px-4"
+                        onClick={() => handleNavigation("/stats", "Loading statistics...")}
+                        disabled={isLoading}
+                      >
+                        📊 Stats
                       </button>
                     </div>
                   </div>

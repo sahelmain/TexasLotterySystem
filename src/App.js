@@ -8,6 +8,9 @@ import BrowseLotteryTickets from './browse_lottery_tickets';
 import ManageTickets from './ManageTickets';
 import PreviousWinningNumbers from './prevNumbers';
 import OrderHistory from './orderHistory';
+import TicketFavorites from './TicketFavorites';
+import LotteryStats from './LotteryStats';
+import MultiTicketPurchase from './MultiTicketPurchase';
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -25,6 +28,9 @@ function App() {
           <Route path="/ManageTickets" element={<ManageTickets />} />
           <Route path="/prevNumbers" element={<PreviousWinningNumbers />} />
           <Route path="/orderHistory" element={<OrderHistory />} />
+          <Route path="/favorites" element={<TicketFavorites />} />
+          <Route path="/stats" element={<LotteryStats />} />
+          <Route path="/multi-purchase" element={<MultiTicketPurchase />} />
         </Routes>
       </BrowserRouter>
     </div>

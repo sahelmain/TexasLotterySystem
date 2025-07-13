@@ -362,21 +362,28 @@ const OrderHistory = () => {
                             onClick={() => navigate('/browse_lottery_tickets')}
                             disabled={isLoading}
                           >
-                            🎫 Buy More Tickets
+                            🎫 Buy Tickets
+                          </button>
+                          <button 
+                            className="btn btn-outline-primary rounded-pill px-4"
+                            onClick={() => navigate('/multi-purchase')}
+                            disabled={isLoading}
+                          >
+                            🛒 Bulk Buy
                           </button>
                           <button 
                             className="btn btn-outline-success rounded-pill px-4"
-                            onClick={() => navigate('/prevNumbers')}
+                            onClick={() => navigate('/favorites')}
                             disabled={isLoading}
                           >
-                            🏆 Winning Numbers
+                            💫 Favorites
                           </button>
                           <button 
                             className="btn btn-outline-info rounded-pill px-4"
-                            onClick={() => navigate('/ManageTickets')}
+                            onClick={() => navigate('/stats')}
                             disabled={isLoading}
                           >
-                            ⚙️ Manage Tickets
+                            📊 Statistics
                           </button>
                         </div>
                       </div>
